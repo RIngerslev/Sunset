@@ -24,6 +24,22 @@ public class StartWindow extends Application{
 
     private TextField txfSalatmix, txfIceberg,txfAgurk, txfTomat, txfPickles, txfOst, txfLøg, txfRødløg;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
+    private int counterIceberg = 0;
+    private int counterLøg = 0;
+    private int counterOst = 0;
+    private int counterRødløg = 0;
+    private int counterSalatmix = 0;
+    private int counterTomat = 0;
+    private int counterAgurk = 0;
+    private int counterPickles = 0;
+    private Timer timerIceberg;
+    private Timer timerLøg;
+    private Timer timerOst;
+    private Timer timerRødløg;
+    private Timer timerSalatmix;
+    private Timer timerTomat;
+    private Timer timerAgurk;
+    private Timer timerPickles;
 
 
     private void initContent(GridPane pane) {
@@ -125,10 +141,14 @@ public class StartWindow extends Application{
     }
 
     private void icebergTid(){
-        btn1.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
-        Timer timer = new Timer();
+        if (counterIceberg == 0){
+            timerIceberg = new Timer();
+            counterIceberg += 1;
+        }
+        timerIceberg.cancel();
+        timerIceberg = new Timer();
         TimerTask timerTask = new TimerTask() {
-            int counter = 20;
+            int counter = 180;
             @Override
             public void run() {
                 if(counter <= 15){
@@ -140,19 +160,25 @@ public class StartWindow extends Application{
                     counter--;
                 }else{
                     txfIceberg.setText("Skal skiftes");
-                    timer.cancel();
+                    counterIceberg = 0;
+                    timerIceberg.cancel();
                 }
             }
         };
-        timer.scheduleAtFixedRate(timerTask,0,60000);
+        timerIceberg.scheduleAtFixedRate(timerTask,0,60000);
         btn1.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
         txfIceberg.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 15");
     }
 
     private void løgTid(){
-        Timer timer = new Timer();
+        if (counterLøg == 0){
+            timerLøg = new Timer();
+            counterLøg += 1;
+        }
+        timerLøg.cancel();
+        timerLøg = new Timer();
         TimerTask timerTask = new TimerTask() {
-            int counter = 20;
+            int counter = 180;
             @Override
             public void run() {
                 if(counter <= 15){
@@ -164,16 +190,23 @@ public class StartWindow extends Application{
                     counter--;
                 }else{
                     txfLøg.setText("Skal skiftes");
+                    counterLøg = 0;
+                    timerLøg.cancel();
                 }
             }
         };
-        timer.scheduleAtFixedRate(timerTask,0,60000);
+        timerLøg.scheduleAtFixedRate(timerTask,0,60000);
         btn2.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
         txfLøg.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 15");
     }
 
     private void ostTid(){
-        Timer timer = new Timer();
+        if (counterOst == 0){
+            timerOst = new Timer();
+            counterOst += 1;
+        }
+        timerOst.cancel();
+        timerOst = new Timer();
         TimerTask timerTask = new TimerTask() {
             int counter = 180;
             @Override
@@ -187,16 +220,23 @@ public class StartWindow extends Application{
                     counter--;
                 }else{
                     txfOst.setText("Skal skiftes");
+                    counterOst = 0;
+                    timerOst.cancel();
                 }
             }
         };
-        timer.scheduleAtFixedRate(timerTask,0,60000);
+        timerOst.scheduleAtFixedRate(timerTask,0,60000);
         btn3.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
         txfOst.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 15");
     }
 
     private void rødløgTid(){
-        Timer timer = new Timer();
+        if (counterRødløg == 0){
+            timerRødløg = new Timer();
+            counterRødløg += 1;
+        }
+        timerRødløg.cancel();
+        timerRødløg = new Timer();
         TimerTask timerTask = new TimerTask() {
             int counter = 180;
             @Override
@@ -210,16 +250,23 @@ public class StartWindow extends Application{
                     counter--;
                 }else{
                     txfRødløg.setText("Skal skiftes");
+                    counterRødløg = 0;
+                    timerRødløg.cancel();
                 }
             }
         };
-        timer.scheduleAtFixedRate(timerTask,0,60000);
+        timerRødløg.scheduleAtFixedRate(timerTask,0,60000);
         btn4.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
         txfRødløg.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 15");
     }
 
     private void salatmixTid(){
-        Timer timer = new Timer();
+        if (counterSalatmix == 0){
+            timerSalatmix = new Timer();
+            counterSalatmix += 1;
+        }
+        timerSalatmix.cancel();
+        timerSalatmix = new Timer();
         TimerTask timerTask = new TimerTask() {
             int counter = 180;
             @Override
@@ -233,17 +280,24 @@ public class StartWindow extends Application{
                     counter--;
                 }else{
                     txfSalatmix.setText("Skal skiftes");
+                    counterSalatmix = 0;
+                    timerSalatmix.cancel();
                 }
 
             }
         };
-        timer.scheduleAtFixedRate(timerTask,0,60000);
+        timerSalatmix.scheduleAtFixedRate(timerTask,0,60000);
         btn5.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
         txfSalatmix.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 15");
     }
 
     private void tomatTid(){
-        Timer timer = new Timer();
+        if (counterTomat == 0){
+            timerTomat = new Timer();
+            counterTomat += 1;
+        }
+        timerTomat.cancel();
+        timerTomat = new Timer();
         TimerTask timerTask = new TimerTask() {
             int counter = 180;
             @Override
@@ -257,16 +311,23 @@ public class StartWindow extends Application{
                     counter--;
                 }else{
                     txfTomat.setText("Skal skiftes");
+                    counterTomat = 0;
+                    timerTomat.cancel();
                 }
             }
         };
-        timer.scheduleAtFixedRate(timerTask,0,60000);
+        timerTomat.scheduleAtFixedRate(timerTask,0,60000);
         btn6.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
         txfTomat.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 15");
     }
 
     private void agurkTid(){
-        Timer timer = new Timer();
+        if (counterAgurk == 0){
+            timerAgurk = new Timer();
+            counterAgurk += 1;
+        }
+        timerAgurk.cancel();
+        timerAgurk = new Timer();
         TimerTask timerTask = new TimerTask() {
             int counter = 180;
             @Override
@@ -280,16 +341,23 @@ public class StartWindow extends Application{
                     counter--;
                 }else{
                     txfAgurk.setText("Skal skiftes");
+                    counterAgurk = 0;
+                    timerAgurk.cancel();
                 }
             }
         };
-        timer.scheduleAtFixedRate(timerTask,0,60000);
+        timerAgurk.scheduleAtFixedRate(timerTask,0,60000);
         btn7.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
         txfAgurk.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 15");
     }
 
     private void picklesTid(){
-        Timer timer = new Timer();
+        if (counterPickles == 0){
+            timerPickles = new Timer();
+            counterPickles += 1;
+        }
+        timerPickles.cancel();
+        timerPickles = new Timer();
         TimerTask timerTask = new TimerTask() {
             int counter = 180;
             @Override
@@ -303,10 +371,12 @@ public class StartWindow extends Application{
                     counter--;
                 }else{
                     txfPickles.setText("Skal skiftes");
+                    counterPickles = 0;
+                    timerPickles.cancel();
                 }
             }
         };
-        timer.scheduleAtFixedRate(timerTask,0,60000);
+        timerPickles.scheduleAtFixedRate(timerTask,0,60000);
         btn8.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 20");
         txfPickles.setStyle("-fx-background-color: #1E8449; -fx-text-fill: white; -fx-font-size: 15");
     }
